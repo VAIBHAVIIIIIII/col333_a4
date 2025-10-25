@@ -1,8 +1,7 @@
 #!/bin/bash
-# compile.sh
-g++ -O2 -std=c++17 -o learn_bn main.cpp
+g++ -std=c++11 -O2 starter.cpp -o starter
 if [ $? -eq 0 ]; then
-  echo "Compiled successfully: ./learn_bn"
+  echo "Compiled successfully: ./starter"
 else
   echo "Compilation failed"
 fi

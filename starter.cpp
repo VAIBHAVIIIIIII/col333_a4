@@ -775,19 +775,14 @@ void learn_parameters(network &BayesNet, const vector<vector<string>> &data)
 }
 
 // --------------------------- MAIN ---------------------------
-int main(int argc, char *argv[])
+int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    if (argc < 3)
-    {
-        cout << "Usage: " << argv[0] << " <hailfinder.bif> <records.dat>" << endl;
-        return 1;
-    }
-
-    string bif_file = argv[1];
-    string data_file = argv[2];
+    // Hardcoded input files
+    string bif_file = "hailfinder.bif";
+    string data_file = "records.dat";
 
     // 1. Read network
     cout << "Reading network from: " << bif_file << endl;
@@ -798,11 +793,15 @@ int main(int argc, char *argv[])
     vector<vector<string>> data = read_dataset(data_file);
     cout << "Records loaded: " << data.size() << endl;
 
-    // 3. Learn parameters using MLE (simple handling: skip rows with '?' in relevant locations)
+    // 3. Learn parameters (handle missing data as required)
     learn_parameters(BayesNet, data);
 
-    // 4. Write solved network (assignment requires solved_hailfinder.bif)
+    // 4. Write solved network to required output file
     write_network("solved_hailfinder.bif", BayesNet);
+
+    cout << "Parameter learning completed." << endl;
 
     return 0;
 }
+
+

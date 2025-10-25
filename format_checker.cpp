@@ -2,7 +2,6 @@
 #include "starter.cpp"   // use existing parser & data structures
 #include <cmath>
 #include <iomanip>
-
 using namespace std;
 
 float compute_error(network& gold, network& solved) {
