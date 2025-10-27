@@ -1,7 +1,7 @@
-#define BN_LIB
-#include "starter.cpp"   // use existing parser & data structures
+#define BN_LIB  // use existing parser & data structures
 #include <cmath>
 #include <iomanip>
+#include "bn_lib.h"
 using namespace std;
 
 float compute_error(network& gold, network& solved) {
