@@ -404,13 +404,14 @@ void learn_parameters_EM(network &BayesNet, const vector<vector<string>> &data, 
 
     // Quick dataset sanity check: all rows must have N tokens.
     for (int r = 0; r < num_records; ++r) {
-        if ((int)data[r].size() != N) {
+        int row_len = static_cast<int>(data[r].size());
+
+        // Only warn if the row is NOT blank (len 1) but is STILL the wrong length
+        if (row_len != N && row_len > 1) {
             cerr << "Data row " << r << " length " << data[r].size()
-                 << " != expected " << N << " — check records.dat formatting." << endl;
-            // continue; // you can exit instead if desired
+                << " != expected " << N << " - check records.dat formatting." << endl;
         }
     }
-
     struct NodeInfo {
         int nvalues;
         vector<int> parent_indices;
