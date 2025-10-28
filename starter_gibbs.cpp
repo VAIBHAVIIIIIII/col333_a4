@@ -2,7 +2,7 @@
  *  starter2.cpp  –  Parameter learning for Bayesian networks
  ********************************************************************/
 
-#include "bn_lib.h"
+#include "bn_lib2.h"
 #include <random>
 #include <numeric>
 #include <iomanip>
